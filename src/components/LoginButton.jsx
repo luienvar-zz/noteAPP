@@ -12,7 +12,32 @@ import RaisedButton from 'material-ui/RaisedButton';
 //Icono de Material Design Icon
 import FacebookIcon from 'mdi-material-ui/Facebook';
 
+const FB_API_ID = 'v2.11';
+const FB_APP_ID = '145592762756569';
+
 class LoginButton extends Component {
+
+  componentDidMount() {
+    this._InitializefbSDK();
+  }
+
+  _InitializefbSDK = () => {
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : FB_APP_ID,
+        cookie     : true,
+        version    : FB_API_ID
+      });
+    };
+
+    (function(d, s, id){
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {return;}
+      js = d.createElement(s); js.id = id;
+      js.src = "https://connect.facebook.net/en_US/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  }
 
   _handleFBlogin = () => {
     FB.login(response => {
