@@ -1,0 +1,37 @@
+body {background-color: #F1E8B8;}
+
+.image-wrapper{
+  background-image: url('../notas.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 600px;
+  width: 500px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 10px 15px 5px #6F6438;
+  border-radius: 1%;
+  -webkit-background-size:cover;
+  -moz-background-size:cover;
+  -o-background-size:cover;
+  position: absolute;
+  left:50%;
+  top:50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.flex-item {
+  align-self: center;
+  text-align: center;
+  flex: 0 1 auto;
+}
+
+.flex-item2 {
+  align-self :center;
+  text-align: center;  
+}
