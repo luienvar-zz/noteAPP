@@ -10,13 +10,12 @@ import Note from './Note';
 import {List} from 'material-ui/List';
 
 class NoteList extends Component {
-
   
   render() {
+
     if (this.props.data.loading) {
       return (<Loader/>)
     }
-    
     return (
       <List>
         {this.props.data.allNotes.map(note => (
@@ -28,15 +27,22 @@ class NoteList extends Component {
 }
 
 export const ALL_NOTES = gql`
-query AllNotesQuery {
-  allNotes(orderBy: updatedAt_DESC) {
+query AllNotesQuery($id: ID) {
+  allNotes(
+      filter: {user:{id:$id}}        
+      orderBy: updatedAt_DESC) {
     id
     title
     description
     updatedAt
     createdAt
   }
-}
-`
+}`
 
-export default graphql(ALL_NOTES)(NoteList);
+export default graphql(ALL_NOTES,{
+  options: (props) => ({
+    variables: { 
+      id : props.user.id 
+    }
+  })
+})(NoteList);

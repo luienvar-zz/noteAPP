@@ -1,7 +1,5 @@
 // @flow
 
-/*global FB*/
-
 import React, { Component } from 'react';
 import gql from 'graphql-tag';
 import { graphql } from 'react-apollo';
@@ -27,7 +25,7 @@ class App extends Component {
       <MuiThemeProvider>
         <div>
           <Header user={this.props.data.loggedInUser}/>
-          <NoteList />
+          <NoteList user={this.props.data.loggedInUser}/>
           <Footer />
         </div>
       </MuiThemeProvider>

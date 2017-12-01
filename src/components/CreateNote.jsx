@@ -75,11 +75,13 @@ class CreateNote extends Component {
 
     await this.props.CreateNoteMutation({
       variables: { description, title, authorId},
-      update: (store, {data: { createNote}}) => {
-        const data = store.readQuery({ query: ALL_NOTES})
+      update: (store, {data: { createNote }}) => {
+        const data = store.readQuery({ query: ALL_NOTES, variables: {id: authorId}})
         data.allNotes.splice(0,0,createNote)
+        console.log(data.allNotes);
         store.writeQuery({
           query: ALL_NOTES,
+          variables: {id: authorId},
           data
         })
       }
@@ -177,6 +179,8 @@ mutation CreateNote ($description: String!, $title: String!, $authorId: ID!) {
     id
     title
     description
+    updatedAt
+    createdAt
   }
 }
 `

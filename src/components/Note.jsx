@@ -46,9 +46,11 @@ class Note extends Component {
 
   render() {
     const dateCreado = new Date(this.props.note.createdAt);
-    const localDateCreado = dateCreado.toString().slice(0, -30);
+    const separarDesdeC = dateCreado.toString().indexOf("G");
+    const localDateCreado = dateCreado.toString().slice(0, separarDesdeC);
     const dateUpdate = new Date(this.props.note.updatedAt);
-    const localDateUpdate = dateUpdate.toString().slice(0, -30);
+    const separarDesdeU = dateUpdate.toString().indexOf("G");    
+    const localDateUpdate = dateUpdate.toString().slice(0, separarDesdeU);
     return (
       <Paper style={style.paper} zDepth={4}>
       <Toolbar style={style.paperTitle}>
