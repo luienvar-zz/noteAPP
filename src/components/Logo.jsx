@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from '../pineapple-logo.svg';
+import logo from '../assets/img/pineapple-logo.svg';
 
 const style = {
   flex: {

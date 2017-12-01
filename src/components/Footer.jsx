@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 //Componentes
-import footerLogo from '../pineappleFooter.png';
+import footerLogo from '../assets/img/pineappleFooter.png';
 
 export default class Footer extends Component {
   render() {

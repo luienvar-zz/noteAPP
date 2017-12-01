@@ -1,7 +1,7 @@
 body {background-color: #F1E8B8;}
 
 .image-wrapper{
-  background-image: url('../notas.jpg');
+  background-image: url('../assets/img/notas.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   height: 600px;
